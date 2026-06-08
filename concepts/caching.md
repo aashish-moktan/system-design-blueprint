@@ -52,7 +52,7 @@ Since memory is limited, systems must decide which data to remove when the cache
 
 - **Least Recently Used (LRU):** Evicts items that haven't been accessed for the longest time. It is the most common default.
 - **Least Frequently Used (LFU):** Evicts items based on how rarely they are accessed, regardless of how recently they were used.
-- **First In First Out(FIFO):** Evict items based on insertion order.
+- **First In First Out(FIFO):** Evicts items based on insertion order.
 - **Time-to-Live (TTL):** Automatically removes items after a set period, which is crucial for maintaining data freshness.
 
 ---
@@ -85,3 +85,22 @@ In a system design interview, you should only introduce caching if you can justi
 3. **Strict latency requirements** specified in non-functional requirements.
 
 > 💡 **Pro-Tip:** When discussing your design, clearly identify the bottleneck, specify the cache keys and values, choose an architecture, select an eviction policy, and address potential downsides.
+
+# Key Takeaways
+
+- Caching improves performance by storing data in faster memory (RAM)
+- External cache (Redis) is the most common production approach
+- Cache-Aside is the default pattern in interviews
+- Write-Through = consistency first, performance later
+- Write-Behind = performance first, consistency later
+- Major problems:
+  - Cache stampede
+  - Cache inconsistency
+  - Hot keys
+- Eviction policies:
+  - LRU (most common)
+  - LFU (frequency-based)
+  - FIFO (simple)
+  - TTL (time-based)
+- Always justify caching with a real bottleneck
+- Always discuss trade-offs and failure scenarios
